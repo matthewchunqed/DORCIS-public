@@ -1,9 +1,9 @@
 # DORCIS #
-DORCIS is a tool that produces depth and T-depth optimized 3 × 3 and 4 × 4 S-Boxes given a desired target bijective S-Box. This tool is built off of the meet-in-the-middle algorithm from [LIGHTER](https://eprint.iacr.org/2017/101), and the quantum circuit extension of LIGHTER known as [LIGHTER-R](https://ieeexplore.ieee.org/abstract/document/9088027). 
+DORCIS is a tool that produces depth and T-depth optimized 3 × 3 and 4 × 4 S-Boxes given a desired target bijective S-Box. This tool is built on top of [LIGHTER](https://eprint.iacr.org/2017/101) and its reversible circuit extension [LIGHTER-R](https://ieeexplore.ieee.org/abstract/document/9088027). The corresponding paper can be found on [ePrint]().
 
-S-Boxes can be passed in using their "LUT" format. This is an 8 or 16 character long string (for 3 and 4 bit S-boxes respectively) such as "196F7C82AED043B5" where the character in the i-th index maps to the i-th input (so "0123456789ABCDEF" refers to the 4-bit identity S-box).
+S-Boxes can be passed in using the "LUT" format. This is an 8 or 16 character long string (for 3 and 4 bit S-boxes respectively) such as "196F7C82AED043B5" where the character in the i-th index maps to the i-th input (so "0123456789ABCDEF" refers to the 4-bit identity S-box).
 
-S-Boxes can also be passed in using their "Bit Slice" format. This is an 8 or 19 character long string (for 3 and 4 bit S-boxes respectively). The process on how to convert from LUT to Bit Slice is explained in the paper, but the strings must include the spaces. For example, "1e 39 6a" is the bit slice form of "01367452".
+Alternately, S-Boxes can also be passed in using the "bit-slice" format. This is an 8 or 19 character long string (for 3 and 4 bit S-boxes respectively). The process on how to convert from LUT to bit-slice is explained in the paper, but the strings must include the spaces. For example, "1e 39 6a" is the bit-slice form of "01367452".
 
 ## Command Line Usage ##
     ./non-lin-search [-v] [-w] [-u] [-q] [-t]
@@ -85,6 +85,6 @@ By repeating this process, one can implement any S-Box and verify all findings l
 <!--I am currently running this on g++-11, on macOS Monterey. The code before modifications only had "g++" on the top line of the Makefile rather than "g++-11" and I believe the previous developers had that working on Linux. -->
 The project is tested with `g++11` on MacOS Monterey.
 
-As per any other C++ code, in order to run the code, one should enter the terminal in IDE, change directory to this folder (if it doesn't already default to it), and run `make`. This saves all the changes to the files and creates an executable which can be called, named `non-lin-search`.
+As per any other C++ code, in order to run the code, one should enter the terminal in IDE, change directory to this folder (if it doesn't already default to it), and run `make`. This saves all the changes to the files and creates an executable named `non-lin-search`.
 
 <!--Please feel free to suggest/contribute new features or fix bugs or add documentation.-->
