@@ -32,3 +32,4 @@ plt.show()
 # to : 9D43 2D1D 1379 9B8C 
 # T-Depth : 5
 # Depth : 41
+# Gate Count : 13
