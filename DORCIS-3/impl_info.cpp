@@ -37,16 +37,14 @@ extern int count_list;
 extern int max_impl;
 extern int shortest_path;
 extern int tdepthrec;
-extern int gatecountrec;
 extern bool tdepmode;
 extern string implementation_id;
 extern string conf_file;
 
 int depth;
 int tdepth;
-int gatecount;
-int costs [3] = {0,0,0};
-int tcosts [3] = {0,0,0};
+int costs [4] = {0,0,0,0};
+int tcosts [4] = {0,0,0,0};
 std::stack<function_t> st;
 std::queue<function_t> q;
 
@@ -334,9 +332,6 @@ void get_semi_impl(function_t f,
   {
     update_unsorted_function(f);
     get_string_impl(s, unsorted_function, reverse, qiskit);
-    if(qiskit){
-      gatecount = gatecount + 1;
-    }
     f.bit_slice[f.info_line] = f.prev;
     f.sort();
     count_vlist -= bool_op_cost(f.info_op);
@@ -384,7 +379,7 @@ void get_implementation(function_t f1,
                       map<int, set<function_t> > *g2)
 {
   static int impl_number = 0;
-  gatecount = 0;
+
   string s1, s2;
   if(g1 == &f1_succ)
   {
@@ -413,26 +408,25 @@ void get_implementation(function_t f1,
     }
   }
   depth = costs[0];
-    for(int i=0; i<3; i++){
+    for(int i=0; i<4; i++){
       if(costs[i] > depth){
         depth = costs[i];
       }
       costs[i] = 0;
     }
   tdepth = tcosts[0];
-    for(int i=0; i<3; i++){
+    for(int i=0; i<4; i++){
       if(tcosts[i] > tdepth){
         tdepth = tcosts[i];
       }
       tcosts[i] = 0;
     }
   unsorted_function.sort();
-  if((!tdepmode && (depth < shortest_path || (depth == shortest_path && tdepth < tdepthrec) || (depth == shortest_path && tdepth == tdepthrec && gatecount < gatecountrec))) || (tdepmode && (tdepth < tdepthrec || (tdepth == tdepthrec && depth < shortest_path) || (tdepth == tdepthrec && depth == shortest_path && gatecount < gatecountrec))))
+  if((!tdepmode && (depth < shortest_path || (depth == shortest_path && tdepth < tdepthrec))) || (tdepmode && (tdepth < tdepthrec || (tdepth == tdepthrec && depth < shortest_path))))
   {
     cout << "Generating implementation " << impl_number << endl;
     tdepthrec = tdepth;
     shortest_path = depth;
-    gatecountrec = gatecount;
     ofstream qis("impqiskit" + implementation_id + to_string(impl_number) + ".py");
     bool x = false;
     if(unsorted_function == start){x = true;}
@@ -440,7 +434,6 @@ void get_implementation(function_t f1,
     else qis << s1 << s2;
     qis << "# T-Depth : " << (double)(tdepth) << endl;
     qis << "# Depth : " << (double)(depth) << endl;
-    qis << "# Gate Count : " << (double)(gatecount) << endl;
      
     qis.close();
 
@@ -476,7 +469,6 @@ void get_implementation(function_t f1,
     else impl << t1 << t2;
     impl << "// T-Depth : " << (double)(tdepth) << endl;
     impl << "// Depth : " << (double)(depth) << endl;
-    impl << "// Gate Count : " << (double)(gatecount) << endl;
      
     impl.close();
     unsorted_function.sort();

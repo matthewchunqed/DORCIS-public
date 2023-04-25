@@ -1,4 +1,4 @@
-CC=g++ -fopenmp
+CC=g++-11 -fopenmp
 CFLAGS= -std=c++14 -O3 -Wall -Wextra -pedantic -Wno-unused-variable -Wno-unused-result
 LDFLAGS=
 EXEC=non-lin-search

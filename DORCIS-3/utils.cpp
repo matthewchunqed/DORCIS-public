@@ -62,6 +62,7 @@ void exit_m()
     graphe_to_file(&f1_succ, "f1");
     graphe_to_file(&f2_succ, "f2");
   }
+  system("notify-send 'EXIT'");
   exit(0);
 }
 

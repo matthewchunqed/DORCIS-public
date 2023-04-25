@@ -35,7 +35,6 @@ map<int, set<function_t> > f2_succ;
 long count_list;
 int shortest_path = numeric_limits<int>::max();
 int tdepthrec = numeric_limits<int>::max();
-int gatecountrec = numeric_limits<int>::max();
 string implementation_id = "_";
 
 int max_GE = 0;
