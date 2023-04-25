@@ -31,4 +31,3 @@ plt.show()
 # to : A555 C03F 4787 29B3 
 # T-Depth : 4
 # Depth : 30
-# Gate Count : 12

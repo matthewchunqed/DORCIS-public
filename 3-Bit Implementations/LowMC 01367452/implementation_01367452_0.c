@@ -17,4 +17,3 @@ X[2] = F[2];
 // to : 001E 0039 006A 
 // T-Depth : 3
 // Depth : 23
-// Gate Count : 5

@@ -23,4 +23,3 @@ X[3] = F[2];
 // to : 56E2 3C69 39C6 D827 
 // T-Depth : 4
 // Depth : 31
-// Gate Count : 9

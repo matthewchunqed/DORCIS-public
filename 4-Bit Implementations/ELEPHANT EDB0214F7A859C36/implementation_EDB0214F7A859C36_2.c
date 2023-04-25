@@ -27,4 +27,3 @@ X[3] = F[2];
 // to : E16C C395 A9C3 659A 
 // T-Depth : 4
 // Depth : 33
-// Gate Count : 13

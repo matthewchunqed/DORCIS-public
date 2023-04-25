@@ -31,4 +31,3 @@ plt.show()
 # to : B6A4 A137 3C56 2778 
 # T-Depth : 8
 # Depth : 61
-# Gate Count : 11

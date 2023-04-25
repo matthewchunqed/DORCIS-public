@@ -18,7 +18,6 @@ circuit.ccx((2),(1),(0))
 circuit.x(0)
 circuit.cx((1),(3))
 circuit.cx((3),(0))
-print(circuit.depth()) #note that this is the non-decomposed depth
 circuit.draw(output="mpl")
 plt.show()
 #X[0] = F[2];
@@ -29,4 +28,3 @@ plt.show()
 # to : 5563 3C59 4EB1 8778 
 # T-Depth : 4
 # Depth : 32
-# Gate Count : 10

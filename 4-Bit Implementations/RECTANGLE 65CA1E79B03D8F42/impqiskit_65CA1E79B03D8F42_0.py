@@ -29,4 +29,3 @@ plt.show()
 # to : 359C E616 96A5 4BB4 
 # T-Depth : 4
 # Depth : 34
-# Gate Count : 10

@@ -24,4 +24,3 @@ X[3] = F[0];
 // to : A555 C03F 4787 29B3 
 // T-Depth : 4
 // Depth : 32
-// Gate Count : 10
