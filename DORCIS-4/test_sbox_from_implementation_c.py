@@ -8,16 +8,18 @@ def CNOT1(a, b):
 
 def CCNOT2(a, b, c):
 	return (a & b) ^ c
-	#return a ^ (b & c)
+
+def CCCNOT2(a, b, c, d):
+	return (a & b & c) ^ d
 
 Z = []
-for f in range(8)[::]:
+for f in range(16)[::]:
 
-	Y = [None]*3
+	Y = [None]*4
 
 
-	X = [x == '1' for x in list((bin(f)[2:]).zfill(3))]
-	F = [None]*3
+	X = [x == '1' for x in list((bin(f)[2:]).zfill(4))]
+	F = [None]*4
 
 	############ Twine SBox (C0FA2B9583D71E64)
     ########### Copy starts
@@ -52,7 +54,7 @@ for f in range(8)[::]:
 	Z.append(Y)
 	
 
-for f in range(8):
+for f in range(16):
 	if f not in Z:
 		print ('Error, missing %x'%f)
 print((''.join(map(lambda x: hex(x)[2:], Z))).upper())
