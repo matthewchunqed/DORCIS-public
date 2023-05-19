@@ -163,6 +163,7 @@ string bool_op_base_string(uint8_t op, bool qiskit)
       case RNOT1             : return feq+"RNOT1(F[]);\n";
       case CNOT1             : return feq+"CNOT1(F[], F[]);\n";
       case CCNOT2            : return feq+"CCNOT2(F[], F[], F[]);\n";
+      case CCCNOT2           : return feq+"CCCNOT2(F[], F[], F[], F[]);\n";
     }
     return "";
 }
