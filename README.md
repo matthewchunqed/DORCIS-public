@@ -68,12 +68,17 @@ DORCIS will continually search, adding a .c implementation folder whenever it fi
 
 * By repeating this process, one can implement any S-box and verify all findings laid forth in the paper accompanying this code.
 
+* ### Additional Tool ###
+There are two additional tools provided with DORCIS. decompose_circuit.py takes a Qiskit file of a quantum circuit and decomposes the Toffoli gates as described in the paper. convert_to_qiskit.py takes a .c file, representing a quantum circuit implementation, and converts it to a Qiskit file. The tool natively prints quantum circuit implementations both in .c and Qiskit. 
+
+All the Qiskit circuits printed by DORCIS or related tools also print out the depth at runtime, and draw a matplotlib depiction of the circuit. For a LaTeX drawing of the circuit, the line **circuit.draw(output="mpl")** can be changed to **circuit.draw(output="latex")**
+
 ## Notes ##
 
 1. DORCIS requires `g++-11`. The Makefile can be adjusted from reading `g++-11` to `g++` for other versions of g++.
 2. This code will run until the graph size (which is printed when you call -v) reaches the integer overflow limit. This means that you can leave the code running for a long time to search more boxes, but it is likely that most of the boxes it will find will be bunched together with respect to graph size anyway.
 3. DORCIS sets the input, `F[i]`, such that `F[0]` is the most significant bit. So 1 would be represented as `001` or `F[0] = 0`, `F[1] = 0`, `F[2] = 1`.
-4. The execution of DORCIS is non-deterministic.
+4. The execution of DORCIS is non-deterministic, due to its parallelism.
 
 ## Recommended Specification ##
 
