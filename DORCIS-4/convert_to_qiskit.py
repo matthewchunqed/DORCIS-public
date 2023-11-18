@@ -37,7 +37,7 @@ with open(target_file, "r") as f:
     text = re.compile(r'RNOT1\(F\[(\d+)\]\)').sub(r'circuit.x(\1)', text)
     text = re.compile(r'CNOT1\(F\[(\d+)\], F\[(\d+)\]\)').sub(r'circuit.cx(\1, \2)', text)
     text = re.compile(r'CCNOT2\(F\[(\d+)\], F\[(\d+)\], F\[(\d+)\]\)').sub(r'circuit.ccx(\1, \2, \3)', text)
-    text = re.compile(r'CCCNOT2\(F\[(\d+)\], F\[(\d+)\], F\[(\d+)\], F\[(\d+)\]\)').sub(r'circuit.cccx(\1, \2, \3, \4)', text)
+    text = re.compile(r'CCCNOT2\(F\[(\d+)\], F\[(\d+)\], F\[(\d+)\], F\[(\d+)\]\)').sub(r'#circuit.cccx(\1, \2, \3, \4)\n#Qiskit doesn\'t natively support CCCX gates.', text)
 
     #Remove semicolons
     text = text.replace(";", "")
