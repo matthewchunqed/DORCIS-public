@@ -68,10 +68,11 @@ DORCIS will continually search, adding a .c implementation folder whenever it fi
 
 * By repeating this process, one can implement any S-box and verify all findings laid forth in the paper accompanying this code.
 
-* ### Additional Tool ###
-There are two additional tools provided with DORCIS. decompose_circuit.py takes a Qiskit file of a quantum circuit and decomposes the Toffoli gates as described in the paper. convert_to_qiskit.py takes a .c file, representing a quantum circuit implementation, and converts it to a Qiskit file. The tool natively prints quantum circuit implementations both in .c and Qiskit. 
+### Additional Tool ###
+Two additional tools are provided with DORCIS:
+* `decompose_circuit.py` takes a Qiskit file of a quantum circuit and decomposes the Toffoli gates as described in the paper. convert_to_qiskit.py takes a `.c` file, representing a quantum circuit implementation, and converts it to a Qiskit file. The tool natively prints quantum circuit implementations both in `.c` and Qiskit. 
 
-All the Qiskit circuits printed by DORCIS or related tools also print out the depth at runtime, and draw a matplotlib depiction of the circuit. For a LaTeX drawing of the circuit, the line **circuit.draw(output="mpl")** can be changed to **circuit.draw(output="latex")**
+* All the Qiskit circuits printed by DORCIS or related tools also print out the depth at runtime, and draw a matplotlib depiction of the circuit. For a LaTeX drawing of the circuit, the line `circuit.draw(output="mpl")` can be changed to `circuit.draw(output="latex")`.
 
 ## Notes ##
 
