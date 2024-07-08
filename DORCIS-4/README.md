@@ -30,23 +30,23 @@ Current version went through some minor algorithmic changes from LIGHTER, so som
 
 All commands should start with the following:
 
-./non-lin-search -q -o "S-Box"
+`./non-lin-search -q -o "S-Box"`
 
-for some 16 character S-Box. Here are some example commands used to generate the implementations for the figures.
+for some 16 character S-Box. Here are some example commands used to generate the implementations for the figures:
 
-./non-lin-search -q -o "1A4C6F392DB7508E" -t
+1. T-Depth and Depth Search of the GIFT S-Box:
 
-./non-lin-search -q -o "1A4C6F392DB7508E"
+`./non-lin-search -q -o "1A4C6F392DB7508E" -t`
 
-T-Depth and Depth Search of the GIFT S-Box.
+`./non-lin-search -q -o "1A4C6F392DB7508E"`
 
-./non-lin-search -q -o "C56B90AD3EF84712" -t
+2. T-Depth and Depth Search of the PRESENT S-Box:
 
-./non-lin-search -q -o "C56B90AD3EF84712"
+`./non-lin-search -q -o "C56B90AD3EF84712" -t`
 
-T-Depth and Depth Search of the PRESENT S-Box.
+`./non-lin-search -q -o "C56B90AD3EF84712"`
 
-Code will continually search, adding a .c implementation folder whenever it finds a better implementation. So the most recently produced implementation is always the best one.
+Code will continually search, adding a `.c` implementation folder whenever it finds a better implementation. So the most recently produced implementation is always the best one.
 
 ## Notes ##
 
@@ -55,7 +55,7 @@ Code will continually search, adding a .c implementation folder whenever it find
 3. The code sets the input, F[i], such that F[0] is the most significant bit. So 1 would be represented as 001 or F[0],F[1] = 0, F[2]=1.
 
 ## Required Specs ##
-This is currently running on g++-11. The code before modifications only had "g++" on the top line of the Makefile rather than "g++-11" and I believe the previous developers had that working on Linux. 
+This is currently running on `g++-11`. The code before modifications only had "g++" on the top line of the Makefile rather than "g++-11" and I believe the previous developers had that working on Linux. 
 
 As per any other C++ code, in order to run the code you should simply enter the terminal in your IDE, change directory to this folder (if it doesn't already default to it), and run "make". This saves all the changes to the files and creates an executable which can be called, named "non-lin-search". It is executed with the command ./non-lin-search followed by the arguments you'll need to pass in.
 
